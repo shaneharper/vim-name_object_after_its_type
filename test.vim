@@ -1,6 +1,7 @@
 " Run this from a shell:
 "  vim -S test.vim
 
+set noswapfile
 set noexpandtab
 
 let failure_count = 0
@@ -32,6 +33,7 @@ endfor
 if failure_count == 0
     echomsg "Ok."
     set t_ti= t_te=  " (don't restore old text displayed in terminal on exit)
+    messages
     quitall!
 endif
 
