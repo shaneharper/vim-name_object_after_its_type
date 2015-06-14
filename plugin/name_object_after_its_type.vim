@@ -21,6 +21,9 @@ function! s:get_type_name_behind_cursor()
     endwhile
     if s:character_under_cursor() ==# '}'  " handle "struct S { int x,y; }"
         normal %b
+        if getline('.')[:col('.')-1] =~# ' : '
+            execute "normal / : \<CR>b"
+        endif
     endif
     let r = expand("<cword>")
     call winrestview(win_save_values)

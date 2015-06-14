@@ -19,7 +19,8 @@ for [type_name, expected_object_name] in
     \  ["/*XXX It'd be nice if 'space_stations' (plural) was output, XXX or 'vector'?.*/ std::vector<SpaceStation>", " space_station"],
     \  ["std::vector<SpaceStation> ", "space_station"],
     \  ["struct MyThing { int x, y; }", " my_thing"],
-    \  ["struct MyThing { int x, y; } ", "my_thing"]
+    \  ["struct MyThing { int x, y; } ", "my_thing"],
+    \  ["struct MyThing : Base { int x, y; }", " my_thing"]
     \ ]
 " XXX   \  ["MyThing<int>", " my_thing"]
 " XXX   \  ["IBM_Computer", " IBM_computer"]
