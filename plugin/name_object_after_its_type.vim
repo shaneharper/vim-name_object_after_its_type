@@ -15,14 +15,20 @@ endfunction
 
 function! s:get_type_name_behind_cursor()
     let win_save_values = winsaveview()
-    normal b
-    " 'b' will stop on '>'. Special handling is required for "std::vector<Thing>"
-    while (col(".") > 1) && (getline(".")[col(".")-1] =~# "[&*>]") || (expand("<cword>") ==# "const")
+    " For "X<Y>" this will stop on Y - XXX perhaps X would make more sense?
+    while (col(".") > 1) && (s:character_under_cursor() =~# "[&*>\t ]") || (expand("<cword>") ==# "const")
         normal b
     endwhile
+    if s:character_under_cursor() ==# '}'  " handle "struct S { int x,y; }"
+        normal %b
+    endif
     let r = expand("<cword>")
     call winrestview(win_save_values)
     return r
+endfunction
+
+function! s:character_under_cursor()
+    return getline('.')[col('.')-1]
 endfunction
 
 function! s:camel_case_name_as_list_of_words(camel_case_name)
