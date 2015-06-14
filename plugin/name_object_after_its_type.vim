@@ -22,7 +22,7 @@ function! s:get_type_name_behind_cursor()
     if s:character_under_cursor() ==# '}'  " handle "struct S { int x,y; }"
         normal %b
         if getline('.')[:col('.')-1] =~# ' : '
-            execute "normal / : \<CR>b"
+            execute "normal 0/ : \<CR>b"
         endif
     endif
     let r = expand("<cword>")
