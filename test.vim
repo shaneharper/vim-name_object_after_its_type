@@ -8,7 +8,7 @@ let failure_count = 0
 
 try
 
-for [type_name, expected_object_name] in
+for [type_name, expected_plugin_text] in
     \ [["SpaceStation", " space_station"],
     \  ["SpaceStation ", "space_station"],
     \  ["SpaceStation  ", "space_station"],
@@ -26,7 +26,7 @@ for [type_name, expected_object_name] in
 " XXX   \  ["IBM_Computer", " IBM_computer"]
     execute 'normal i'.type_name."uu"
     normal "aY
-    if @a !=# type_name.expected_object_name."\n"
+    if @a !=# type_name . expected_plugin_text . "\n"
         let failure_count += 1
         execute "normal A\<CR>\<CR>"
     else
