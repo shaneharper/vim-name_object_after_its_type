@@ -9,7 +9,7 @@ The plugin creates an insert mode mapping for ````uu```` to insert a name based 
 
 To enter "````SourceLocation source_location;````" type "````SourceLocationuu;````".
 
-Type names are assumed to be in "CamelCase". Object names are  "lower_case_words_separated_by_underscores".
+Type names can be "CamelCase", "camelCase" or "Starts_with_a_capital". Object names are "lower_case_words_separated_by_underscores".
 
 Where there is only one instance of a class in a particular scope it may make sense to name the object after the name of its type instead of inventing some other name.
 
