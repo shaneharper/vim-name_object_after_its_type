@@ -1,6 +1,10 @@
 " vim-name_object_after_its_type
 " Author: Shane Harper <shane@shaneharper.net>
 
+let s:cpoptions_save = &cpoptions
+set cpoptions&vim
+
+
 if exists("g:loaded_name_object_after_its_type") | finish | endif
 let g:loaded_name_object_after_its_type = 1
 
@@ -41,3 +45,6 @@ endfunction
 
 " XXX It could be nice to map Ctrl-space: Use "<NUL>" instead of uu below
 inoremap <unique> uu <Esc>:call <SID>name_object_after_its_type()<CR>a
+
+
+let &cpoptions = s:cpoptions_save

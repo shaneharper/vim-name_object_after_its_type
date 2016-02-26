@@ -1,6 +1,9 @@
 " Run this from a shell:
 "  vim -S test.vim
 
+let s:cpoptions_save = &cpoptions
+set cpoptions&vim
+
 set noswapfile
 set noexpandtab
 
@@ -46,3 +49,6 @@ echomsg string(failure_count)." failed."
 catch
     echomsg v:exception
 endtry
+
+
+let &cpoptions = s:cpoptions_save
