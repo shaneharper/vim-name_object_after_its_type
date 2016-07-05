@@ -9,6 +9,8 @@ set noexpandtab
 
 let failure_count = 0
 
+source plugin/name_object_after_its_type.vim
+
 for [type_name, expected_plugin_text] in
     \ [["SpaceStation", " space_station"],
     \  ["SpaceStation ", "space_station"],
