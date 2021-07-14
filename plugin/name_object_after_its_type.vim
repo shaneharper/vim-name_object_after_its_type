@@ -19,7 +19,7 @@ endfunction
 
 function! s:get_type_name_behind_cursor()
     let win_save_values = winsaveview()
-    " For "X<Y>" this will stop on Y - XXX perhaps X would make more sense?
+    " For "X<Y>" this will stop on Y - XXX Return "X<Y>"? Perhaps name_object_after_its_type() could use "X" if X is not a container, but if X is a container it could insert the plural of Y (e.g. "things" for "std::set<Thing>").
     while (col(".") > 1) && (s:character_under_cursor() =~# "[&*>\t ]") || (expand("<cword>") ==# "const")
         normal b
     endwhile
